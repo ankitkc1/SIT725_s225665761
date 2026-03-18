@@ -1,0 +1,19 @@
+{
+  "name": "2.2p",
+  "version": "1.0.0",
+  "description": "SIT 725 Week 2 -2.2P Assignment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+"type": "git",
+"url": "git+https://github.com/ChoudharyNavit22/sit725-2021-t2-prac2.git"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
