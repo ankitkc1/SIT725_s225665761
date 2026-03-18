@@ -8,10 +8,10 @@
   },
   "repository": {
 "type": "git",
-"url": "git+https://github.com/ChoudharyNavit22/sit725-2021-t2-prac2.git"
+"url": "git+https://github.com/ankitkc1/SIT725_s225665761/tree/main/2.2P"
 },
   "keywords": [],
-  "author": "",
+  "author": "Ankit K C",
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1"
