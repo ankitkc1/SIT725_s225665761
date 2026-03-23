@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f8f2;
+}
+
+.navbar-size {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.main-body {
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(to bottom, #e8f5e9, #f1f8e9);
+  color: #1b5e20;
+  padding-bottom: 40px;
+}
+
+.hero-section {
+  padding-top: 30px;
+}
+
+.materialboxed-image {
+  margin: 20px auto;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.click-me-button {
+  margin-top: 20px;
+  background-color: #43a047;
+}
+
+.card .card-image img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-reveal {
+  color: black;
+}
+
+.card-reveal .card-title,
+.card-reveal p {
+  color: black;
+}
+
+.card-content p a {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+h2, h4 {
+  font-weight: 700;
+}
