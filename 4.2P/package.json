@@ -1,0 +1,21 @@
+{
+  "name": "3.2p",
+  "version": "1.0.0",
+  "description": "Plant card",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitkc1/SIT725_s225665761/tree/main/3.2P"
+  },
+  "keywords": [],
+  "author": "Ankit K C",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3"
+  }
+}
