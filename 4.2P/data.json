@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Baby Jade Plant",
+    "image": "images/jade.jpg",
+    "link": "Indoor tropical plant",
+    "description": "Growing up to 15’ tall in the wild, as a houseplant the baby jade is often much smaller, though its dark stems and tiny leaves make it quite irresistible. As a succulent, baby jades do best when given a thorough, drenching watering before allowing the soil to dry out completely. Available in both solid green and variegated varieties"
+  },
+  {
+    "title": "Snake Plant",
+    "image": "images/snake.jpg",
+    "link": "Low-maintenance houseplant",
+    "description": "It is an evergreen perennial plant that has up to 6 leaves per rosette that more closely resemble a succulent or cacti than a garden perennial. Mature leaves are dark green with light gray-green cross-banding, and usually range between 2.5 and 3 feet in length and 2 to 2.8 inches in width"
+  },
+  {
+    "title": "Guiana Chestnut",
+    "image": "images/chest-nut.jpg",
+    "link": "Flowering indoor plant",
+    "description": "The houseplant is native to the tropical areas of South and Central America. In its natural habitat, Pachira aquatica grows in swamps. The plant is known as the best natural air purifier."
+  }
+]
