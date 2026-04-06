@@ -1,0 +1,20 @@
+{
+  "name": "5.2p",
+  "version": "1.0.0",
+  "description": "MVC Task",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitkc1/SIT725_s225665761/tree/main/5.2P"
+  },
+  "keywords": [],
+  "author": "Ankit K C",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
