@@ -69,7 +69,7 @@ function logCoverage() {
   console.log(
     `COVERAGE|CREATE_FAIL=${coverageTracker.CREATE_FAIL}` +
     `|UPDATE_FAIL=${coverageTracker.UPDATE_FAIL}` +
-    `|TYPE=${coverageTracker.TYPE}` +hde
+    `|TYPE=${coverageTracker.TYPE}` +
     `|REQUIRED=${coverageTracker.REQUIRED}` +
     `|BOUNDARY=${coverageTracker.BOUNDARY}` +
     `|LENGTH=${coverageTracker.LENGTH}` +
