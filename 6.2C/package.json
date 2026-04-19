@@ -1,0 +1,25 @@
+{
+  "name": "task_6",
+  "version": "1.0.0",
+  "description": "SIT 725 Week 6 -6.2C Assignment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitkc1/SIT725_s225665761/tree/main/6.2C"
+  },
+  "keywords": [],
+  "author": "Ankit K C",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "mocha": "^10.8.2",
+    "request": "^2.88.2"
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIT725 Task 2.2P</title>
+</head>
+<body>
+  <h1>Calculator</h1>
+<!-- Add Two Numbers  -->
+  <h2>Add Numbers</h2>
+  <form action="/add" method="GET">
+    <label for="add-a">Enter first number:</label>
+    <input type="number" id="add-a" name="a" step="any" required />
+    <br><br>
+
+    <label for="add-b">Enter second number:</label>
+    <input type="number" id="add-b" name="b" step="any" required />
+    <br><br>
+
+    <button type="submit">Add Numbers</button>
+  </form>
+
+  <hr>
+<!--rest similar to addition -->
+  <h2>Subtract Numbers</h2>
+  <form action="/subtract" method="GET">
+    <label for="sub-a">Enter first number:</label>
+    <input type="number" id="sub-a" name="a" step="any" required />
+    <br><br>
+
+    <label for="sub-b">Enter second number:</label>
+    <input type="number" id="sub-b" name="b" step="any" required />
+    <br><br>
+
+    <button type="submit">Subtract Numbers</button>
+  </form>
+
+  <hr>
+
+  <h2>Multiply Numbers</h2>
+  <form action="/product" method="GET">
+    <label for="mul-a">Enter first number:</label>
+    <input type="number" id="mul-a" name="a" step="any" required />
+    <br><br>
+
+    <label for="mul-b">Enter second number:</label>
+    <input type="number" id="mul-b" name="b" step="any" required />
+    <br><br>
+
+    <button type="submit">Multiply Numbers</button>
+  </form>
+
+  <hr>
+
+  <h2>Divide Numbers</h2>
+  <form action="/division" method="GET">
+    <label for="div-a">Enter first number:</label>
+    <input type="number" id="div-a" name="a" step="any" required />
+    <br><br>
+
+    <label for="div-b">Enter second number:</label>
+    <input type="number" id="div-b" name="b" step="any" required />
+    <br><br>
+
+    <button type="submit">Divide Numbers</button>
+  </form>
+</body>
+</html>
