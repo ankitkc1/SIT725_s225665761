@@ -431,6 +431,203 @@ async function run() {
     tags: ["UPDATE_FAIL"]
   });
 
+  // T23 Required field CREATE: missing id
+  await test({
+    id: "T23",
+    name: "Create missing required id",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const b = makeValidBook(`b${Date.now() + 12}`);
+      delete b.id;
+      return b;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // T24 ID pattern CREATE: invalid characters
+  await test({
+    id: "T24",
+    name: "Create invalid id pattern",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: makeValidBook("bad id!"),
+    tags: ["CREATE_FAIL"]
+  });
+
+  // T25 ID length CREATE: too long
+  await test({
+    id: "T25",
+    name: "Create id too long",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: makeValidBook("b" + "x".repeat(30)),
+    tags: ["CREATE_FAIL", "LENGTH"]
+  });
+
+  // T26 Required field CREATE: missing author
+  await test({
+    id: "T26",
+    name: "Create missing required author",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const b = makeValidBook(`b${Date.now() + 13}`);
+      delete b.author;
+      return b;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // T27 Required field CREATE: missing year
+  await test({
+    id: "T27",
+    name: "Create missing required year",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const b = makeValidBook(`b${Date.now() + 14}`);
+      delete b.year;
+      return b;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // T28 Required field CREATE: missing genre
+  await test({
+    id: "T28",
+    name: "Create missing required genre",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const b = makeValidBook(`b${Date.now() + 15}`);
+      delete b.genre;
+      return b;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // T29 Required field CREATE: missing summary
+  await test({
+    id: "T29",
+    name: "Create missing required summary",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: (() => {
+      const b = makeValidBook(`b${Date.now() + 16}`);
+      delete b.summary;
+      return b;
+    })(),
+    tags: ["CREATE_FAIL", "REQUIRED"]
+  });
+
+  // T30 Integer rule CREATE: decimal year
+  await test({
+    id: "T30",
+    name: "Create non-integer year",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: { ...makeValidBook(`b${Date.now() + 17}`), year: 2020.5 },
+    tags: ["CREATE_FAIL", "TYPE"]
+  });
+
+  // T31 Price precision CREATE: more than 2 decimal places
+  await test({
+    id: "T31",
+    name: "Create price with too many decimals",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: { ...makeValidBook(`b${Date.now() + 18}`), price: "19.999" },
+    tags: ["CREATE_FAIL", "TYPE"]
+  });
+
+  // T32 Length CREATE: author too long
+  await test({
+    id: "T32",
+    name: "Create author too long",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: { ...makeValidBook(`b${Date.now() + 19}`), author: "A".repeat(121) },
+    tags: ["CREATE_FAIL", "LENGTH"]
+  });
+
+  // T33 Integer rule UPDATE: decimal year
+  await test({
+    id: "T33",
+    name: "Update non-integer year",
+    method: "PUT",
+    path: updatePath(updateSeedId),
+    expected: 400,
+    body: { year: 2024.5 },
+    tags: ["UPDATE_FAIL", "TYPE"]
+  });
+
+  // T34 Length UPDATE: genre too long
+  await test({
+    id: "T34",
+    name: "Update genre too long",
+    method: "PUT",
+    path: updatePath(updateSeedId),
+    expected: 400,
+    body: { genre: "G".repeat(61) },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+  // T35 Length UPDATE: summary too long
+  await test({
+    id: "T35",
+    name: "Update summary too long",
+    method: "PUT",
+    path: updatePath(updateSeedId),
+    expected: 400,
+    body: { summary: "S".repeat(2001) },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+  // T36 Price precision UPDATE: more than 2 decimal places
+  await test({
+    id: "T36",
+    name: "Update price with too many decimals",
+    method: "PUT",
+    path: updatePath(updateSeedId),
+    expected: 400,
+    body: { price: "10.999" },
+    tags: ["UPDATE_FAIL", "TYPE"]
+  });
+
+    // T37 Length CREATE: genre too short
+  await test({
+    id: "T37",
+    name: "Create genre too short",
+    method: "POST",
+    path: createPath,
+    expected: 400,
+    body: { ...makeValidBook(`b${Date.now() + 20}`), genre: "A" },
+    tags: ["CREATE_FAIL", "LENGTH"]
+  });
+
+    // T38 Length UPDATE: genre too short
+  await test({
+    id: "T38",
+    name: "Update genre too short",
+    method: "PUT",
+    path: updatePath(updateSeedId),
+    expected: 400,
+    body: { genre: "A" },
+    tags: ["UPDATE_FAIL", "LENGTH"]
+  });
+
+
   const pass = logSummary();
   logCoverage();
 
