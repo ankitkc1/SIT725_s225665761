@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HMS Staff Message Exchange</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>HMS Staff Message Exchange</h1>
+    </header>
+
+    <section class="status-card">
+      <p><strong>Online staff:</strong> <span id="online-count">0</span></p>
+      <p id="typing-message"></p>
+    </section>
+
+    <section class="form-card">
+      <label for="staff-name">Staff name</label>
+      <input type="text" id="staff-name" placeholder="Ankit" />
+
+      <label for="staff-role">Role</label>
+      <select id="staff-role">
+        <option value="Nurse">Nurse</option>
+        <option value="Doctor">Doctor</option>
+        <option value="Reception">Reception</option>
+      </select>
+
+      <label for="message-input">Message</label>
+      <textarea id="message-input" rows="3" placeholder="Patient in Room 12 needs review in medication."></textarea>
+
+      <button id="send-btn">Send Message</button>
+    </section>
+
+    <section class="chat-card">
+      <h2>Live Messages</h2>
+      <div id="message-list"></div>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -253,7 +253,6 @@ async function run() {
     path: createPath,
     expected: 400,
     body: (() => {
-      const b = makeValidBook(`b${Date.now()+2}`);
       delete b.title;
       return b;
     })(),
@@ -268,7 +267,6 @@ async function run() {
     path: createPath,
     expected: 400,
     body: (() => {
-      const b = makeValidBook(`b${Date.now()+3}`);
       delete b.price;
       return b;
     })(),
@@ -282,7 +280,6 @@ async function run() {
     method: "POST",
     path: createPath,
     expected: 400,
-    body: { ...makeValidBook(`b${Date.now()+4}`), year: "two thousand" },
     tags: ["CREATE_FAIL", "TYPE"]
   });
 
@@ -293,7 +290,6 @@ async function run() {
     method: "POST",
     path: createPath,
     expected: 400,
-    body: { ...makeValidBook(`b${Date.now()+5}`), price: "abc" },
     tags: ["CREATE_FAIL", "TYPE"]
   });
 
@@ -304,7 +300,6 @@ async function run() {
     method: "POST",
     path: createPath,
     expected: 400,
-    body: { ...makeValidBook(`b${Date.now()+6}`), year: 1449 },
     tags: ["CREATE_FAIL", "BOUNDARY"]
   });
 
@@ -315,7 +310,6 @@ async function run() {
     method: "POST",
     path: createPath,
     expected: 400,
-    body: { ...makeValidBook(`b${Date.now()+7}`), price: "-1.00" },
     tags: ["CREATE_FAIL", "BOUNDARY"]
   });
 
@@ -327,7 +321,6 @@ async function run() {
     path: createPath,
     expected: 400,
     body: {
-      ...makeValidBook(`b${Date.now()+8}`),
       title: "T".repeat(201)
     },
     tags: ["CREATE_FAIL", "LENGTH"]
@@ -341,7 +334,6 @@ async function run() {
     path: createPath,
     expected: 400,
     body: {
-      ...makeValidBook(`b${Date.now()+9}`),
       summary: "Too short"
     },
     tags: ["CREATE_FAIL", "LENGTH"]
@@ -355,7 +347,6 @@ async function run() {
     path: createPath,
     expected: 400,
     body: {
-      ...makeValidBook(`b${Date.now()+10}`),
       year: new Date().getFullYear() + 2
     },
     tags: ["CREATE_FAIL", "TEMPORAL"]

@@ -1,0 +1,19 @@
+{
+  "name": "task_7",
+  "version": "1.0.0",
+  "description": "SIT 725 Week 7 -7.2P Assignment",
+  "main": "server.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitkc1/SIT725_s225665761/tree/main/7.2P"
+  },
+  "keywords": [],
+  "author": "Ankit K C",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.5"
+  }
+}
