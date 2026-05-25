@@ -54,7 +54,7 @@ const sessionMiddleware = session({
   cookie: {
     httpOnly: true,
     sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'true',
     maxAge: 1000 * 60 * 30
   }
 });
@@ -106,11 +106,26 @@ app.use('/profile', profileRoutes);
 app.use('/nurse', nurseRoutes);
 app.use('/audit', auditRoutes);
 app.use('/reports', reportRoutes);
+
+//tasksheet requirement
+app.get('/api/student', (req, res) => {
+  return res.status(200).json({
+    name: 'Ankit K C',
+    studentId: 's225665761'
+  });
+});
+
+app.get('/api/health', (req, res) => {
+  return res.status(200).json({
+    status: 'ok',
+    service: 'Hospital Management System'
+  });
+});
+
 app.use((req, res) => {
   res.status(404).send('Page not found');
 });
 
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-  console.log(process.env.MONGO_URI);
 });
