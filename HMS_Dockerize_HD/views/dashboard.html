@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | HMS</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <nav class="teal darken-2 hms-navbar">
+    <div class="nav-wrapper container">
+      <a href="/dashboard" class="brand-logo">HMS</a>
+
+      <ul id="mainNavLinks" class="right hms-nav-links"></ul>
+    </div>
+  </nav>
+
+  <main class="container dashboard-container">
+    <section class="dashboard-hero z-depth-1">
+      <div>
+        <p class="dashboard-kicker">Hospital Management System</p>
+        <h4 id="dashboardTitle">Dashboard</h4>
+        <p id="userInfo" class="dashboard-user">Loading user details...</p>
+      </div>
+
+      <div class="dashboard-date-card">
+        <i class="material-icons">today</i>
+        <div>
+          <small>Today</small>
+          <strong id="todayDate">-</strong>
+        </div>
+      </div>
+    </section>
+
+    <div id="message" class="message-box" style="display: none;"></div>
+
+    <section id="clinicalDashboard" style="display: none;">
+      <div class="row dashboard-stats">
+        <div class="col s12 m3">
+          <div class="card stat-card">
+            <div class="card-content">
+              <i class="material-icons teal-text">event_available</i>
+              <p>All</p>
+              <h5 id="allCount">0</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m3">
+          <div class="card stat-card">
+            <div class="card-content">
+              <i class="material-icons orange-text">schedule</i>
+              <p>Scheduled</p>
+              <h5 id="scheduledCount">0</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m3">
+          <div class="card stat-card">
+            <div class="card-content">
+              <i class="material-icons green-text">check_circle</i>
+              <p>Completed</p>
+              <h5 id="completedCount">0</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m3">
+          <div class="card stat-card">
+            <div class="card-content">
+              <i class="material-icons red-text">cancel</i>
+              <p>Cancelled</p>
+              <h5 id="cancelledCount">0</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row dashboard-main-row">
+        <div class="col s12 l8">
+          <div class="card z-depth-1">
+            <div class="card-content">
+              <div class="section-heading">
+                <div>
+                  <span class="card-title" id="appointmentsTitle">Today's Appointments</span>
+                  <p id="appointmentsSubtitle" class="grey-text text-darken-1">
+                    Scheduled patient visits for today.
+                  </p>
+                </div>
+
+                <a href="/appointments" class="btn-small teal darken-2 waves-effect waves-light">
+                  View All
+                </a>
+              </div>
+
+              <div class="row">
+  <div class="input-field col s12 m4">
+    <i class="material-icons prefix">search</i>
+    <input id="appointmentSearch" type="text" />
+    <label for="appointmentSearch">Search patient, doctor, reason or status</label>
+  </div>
+
+  <div class="input-field col s12 m4">
+    <select id="statusFilter" class="browser-default">
+      <option value="">All Statuses</option>
+      <option value="Scheduled">Scheduled</option>
+      <option value="Completed">Completed</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+  </div>
+
+  <div class="input-field col s12 m4">
+    <input id="dateFilter" type="date" />
+    <label for="dateFilter" class="active">Filter by Date</label>
+  </div>
+</div>
+
+              <div class="responsive-table-wrapper">
+                <table class="highlight responsive-table">
+                  <thead>
+                    <tr>
+                      <th>Time</th>
+                      <th>Patient</th>
+                      <th>Doctor</th>
+                      <th>Reason</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="dashboardAppointmentsTable">
+                    <tr>
+                      <td colspan="6">Loading appointments...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 l4">
+          <div class="card z-depth-1">
+            <div class="card-content">
+              <span class="card-title">Next Patient Visit</span>
+              <div id="nextVisitCard" class="next-visit-card">
+                Loading next visit...
+              </div>
+            </div>
+          </div>
+
+          <div class="card z-depth-1">
+            <div class="card-content">
+              <span class="card-title">Work Focus</span>
+              <ul class="collection focus-list">
+                <li class="collection-item">
+                  <i class="material-icons teal-text">assignment</i>
+                  Check scheduled visits
+                </li>
+                <li class="collection-item">
+                  <i class="material-icons teal-text">person</i>
+                  Review patient details
+                </li>
+                <li class="collection-item doctor-only">
+                  <i class="material-icons teal-text">edit_note</i>
+                  Complete appointment status
+                </li>
+                <li class="collection-item nurse-only">
+                  <i class="material-icons teal-text">monitor_heart</i>
+                  Prepare patient care support
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="generalDashboard" style="display: none;">
+      <div class="card z-depth-2">
+        <div class="card-content">
+          <span class="card-title">Secure Dashboard</span>
+          <p class="grey-text text-darken-1">
+            You are logged in securely. Your session will automatically expire after
+            30 minutes of inactivity.
+          </p>
+
+          <div class="dashboard-actions">
+            <a href="/appointments" class="btn teal darken-2">Appointments</a>
+            <a href="/patients/new" class="btn grey darken-2 role-link" data-roles="admin,reception">
+              Register Patient
+            </a>
+            <a href="/appointments/new" class="btn grey darken-2 role-link" data-roles="admin,reception">
+              Book Appointment
+            </a>
+            <a href="/departments" class="btn grey darken-2 role-link" data-roles="admin">
+              Departments
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/navbar.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/session-timeout.js"></script>
+</body>
+</html>
